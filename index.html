@@ -1,95 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+	<head>
+		<meta charset="utf-8" />
+		<title>Bolo</title>
+		<base href="/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/x-icon" href="material-icons/cake" />
+		<link href="./normalize.css" rel="stylesheet" />
+		<link href="./estilo.css" rel="stylesheet" />
+	</head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Bolo</title>
-  <base href="/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="material-icons/cake" />
-  <link href="./normalize.css" rel="stylesheet">
-  <link href="./estilo.css" rel="stylesheet">
-</head>
+	<body>
+		<!-- Toolbar -->
+		<div class="toolbar" role="banner">
+			<img src="./bcake.png" />
+			<span>Calculadora de Bolo</span>
+			<div class="spacer"></div>
+		</div>
 
-<body>
-  <!-- Toolbar -->
-  <div class="toolbar" role="banner">
-    <img src="./bcake.png">
-    <span>Calculadora de Bolo</span>
-    <div class="spacer"></div>
-  </div>
-
-  <div class="content" role="main">
-    <div role="form">
-      <form>
-        <ul class="flex-outer">
-          <li>
-            <label for="f-quant-bolo">Peso do bolo:</label>
-            <input type="number" step="1" id="f-quant-bolo" name="f-kg" placeholder="Gramas no formato '000'" />
-          </li>
-          <li>
-            <label for="f-preco-kg">Preço do Kg:</label>
-            <input type="number" step="0.01" id="f-preco-kg" name="f-rs" placeholder="Reais no formato '00.00'" />
-          </li>
-          <li>
-            <label for="distance">Distância (em Km):</label>
-            <input type="number" id="distance" step="0.1" placeholder="Kilômetros no formato '00.0'" />
-          </li>
-          <li>
-            <p>Preço do envio:</p>
-            <ul id="flex-inner">
-              <li>
-                <input type="checkbox" id="free" />
-                <label for="free">Gratuito</label>
-              </li>
-              <li>
-                <input type="checkbox" id="0.5/km" />
-                <label for="0.5/km">R$ 0,50 /Km</label>
-              </li>
-              <li>
-                <input type="checkbox" id="1/km" />
-                <label for="1/km">R$ 1,00 /Km</label>
-              </li>
-              <li>
-                <input type="checkbox" id="1.5/km" />
-                <label for="1.5/km">R$ 1,50 /Km</label>
-              </li>
-              <li>
-                <input type="checkbox" id="2/km" />
-                <label for="2/km">R$ 2,00 /Km</label>
-              </li>
-            </ul>
-          </li>
-          <br />
-          <li>
-            <button type="button" id="calcular">Calcular</button>
-            <script>
-              const campo_peso = document.getElementById("f-quant-bolo").innerText;
-              const campo_preco = document.getElementById("f-preco-kg").innerText;
-              const botaoCalcular = document.getElementById("calcular");
-
-              botaoCalcular.onclick = () => {
-                let int_peso = parseInt(campo_peso);
-                console.log(int_peso);
-                
-                let float_preco = parseFloat(campo_preco);
-                console.log(float_preco);
-          
-                let result = int_peso * float_preco / 1000;
-                console.log(result);
-          
-                alert(result);
-              };
-            </script>
-          </li>
-        </ul>
-      </form>
-    </div>
-
-    <div class="content" role="main">
-      <h2 id="resposta">(A respota aparecerá aqui)</h2>
-    </div>
-  </div>
-</body>
-
+		<div class="content" role="main">
+			<div role="form">
+				<form>
+					<ul class="flex-outer">
+						<li>
+							<label for="fQuantBolo">Peso do bolo:</label>
+							<input
+								class="pesoBolo"
+								type="number"
+								step="1"
+								id="fQuantBolo"
+								placeholder="Gramas no formato '000'"
+							/>
+						</li>
+						<li>
+							<label for="fPrecoKg">Preço do Kg:</label>
+							<input
+								class="precoBolo"
+								type="number"
+								step="0.01"
+								id="fPrecoKg"
+								placeholder="Reais no formato '00.00'"
+							/>
+						</li>
+						<li>
+							<label for="distance">Distância (em Km):</label>
+							<input
+								type="number"
+								id="distance"
+								step="0.1"
+								placeholder="Kilômetros no formato '00.0'"
+							/>
+						</li>
+						<li>
+							<p>Preço do envio:</p>
+							<ul id="flex-inner">
+								<li>
+									<input type="radio" name="precoFrete" id="free" />
+									<label for="free">Gratuito</label>
+								</li>
+								<li>
+									<input type="radio" name="precoFrete" id="0.5/km" />
+									<label for="0.5/km">R$ 0,50 /Km</label>
+								</li>
+								<li>
+									<input type="radio" name="precoFrete" id="1/km" />
+									<label for="1/km">R$ 1,00 /Km</label>
+								</li>
+								<li>
+									<input type="radio" name="precoFrete" id="1.5/km" />
+									<label for="1.5/km">R$ 1,50 /Km</label>
+								</li>
+								<li>
+									<input type="radio" name="precoFrete" id="2/km" />
+									<label for="2/km">R$ 2,00 /Km</label>
+								</li>
+							</ul>
+						</li>
+						<br />
+						<li>
+							<button type="button" class="calcular" onclick="calcular()">
+								Calcular
+							</button>
+						</li>
+					</ul>
+				</form>
+				<div class="content" role="main">
+					<h2 class="resposta">(A respota aparecerá aqui)</h2>
+				</div>
+			</div>
+			<script src="./index.js"></script>
+		</div>
+	</body>
 </html>
