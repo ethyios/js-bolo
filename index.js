@@ -1,16 +1,37 @@
-const campo_peso = document.querySelector('.pesoBolo').textContent;
-const campo_preco = document.querySelector('.precoBolo').textContent;
-const subir = document.querySelector('.calcular');
-const resposta = document.querySelector('.resposta');
+let campoPeso = document.querySelector('.pesoBolo');
+let campoPreco = document.querySelector('.precoBolo');
+let campoDist = document.querySelector('.distancia');
+const btCalculo = document.querySelector('.calcular');
+const btCEnvio = document.querySelector('.cEnvio');
+let resposta = document.querySelector('.resposta');
+let radioFrete = [
+	document.getElementsByClassName('0'),
+	document.getElementsByClassName('05'),
+	document.getElementsByClassName('1'),
+	document.getElementsByClassName('15'),
+	document.getElementsByClassName('2'),
+];
 
 function calcular() {
-	let int_peso = parseInt(campo_peso);
-	let float_preco = parseFloat(campo_preco);
+	let peso = campoPeso.value;
+	let preco = campoPreco.value;
 
-	let result = (int_peso * float_preco) / 1000;
-	console.log(result);
-	console.log(campo_peso);
-	console.log(campo_preco);
+	const result = (peso * preco) / 1000;
+
+	resposta.innerHTML = `A resposta é ${result}`;
+	for (let index = 0; index < radioFrete.length; index++) {
+		console.log(`${radioFrete[index].checked}`);
+	}
 }
 
-subir.addEventListener('click', calcular);
+function comEnvio() {
+	let peso = campoPeso.value;
+	let preco = campoPreco.value;
+	let dist = campoDist.value;
+
+	const result = (peso * preco) / 1000;
+
+	resposta.innerHTML = `A resposta é ${result}`;
+}
+
+btCalculo.addEventListener('click', calcular);

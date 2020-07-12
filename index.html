@@ -43,10 +43,11 @@
 							/>
 						</li>
 						<li>
-							<label for="distance">Distância (em Km):</label>
+							<label for="distancia">Distância (em Km):</label>
 							<input
+								class="distancia"
 								type="number"
-								id="distance"
+								id="distancia"
 								step="0.1"
 								placeholder="Kilômetros no formato '00.0'"
 							/>
@@ -55,40 +56,53 @@
 							<p>Preço do envio:</p>
 							<ul id="flex-inner">
 								<li>
-									<input type="radio" name="precoFrete" id="free" />
+									<input type="radio" name="precoFrete" class="0" id="free" />
 									<label for="free">Gratuito</label>
 								</li>
 								<li>
-									<input type="radio" name="precoFrete" id="0.5/km" />
+									<input
+										type="radio"
+										name="precoFrete"
+										class="05"
+										id="0.5/km"
+									/>
 									<label for="0.5/km">R$ 0,50 /Km</label>
 								</li>
 								<li>
-									<input type="radio" name="precoFrete" id="1/km" />
+									<input type="radio" name="precoFrete" class="1" id="1/km" />
 									<label for="1/km">R$ 1,00 /Km</label>
 								</li>
 								<li>
-									<input type="radio" name="precoFrete" id="1.5/km" />
+									<input
+										type="radio"
+										name="precoFrete"
+										class="15"
+										id="1.5/km"
+									/>
 									<label for="1.5/km">R$ 1,50 /Km</label>
 								</li>
 								<li>
-									<input type="radio" name="precoFrete" id="2/km" />
+									<input type="radio" name="precoFrete" class="2" id="2/km" />
 									<label for="2/km">R$ 2,00 /Km</label>
 								</li>
 							</ul>
 						</li>
 						<br />
 						<li>
-							<button type="button" class="calcular" onclick="calcular()">
+							<button type="button" class="calcular">
 								Calcular
+							</button>
+							<button type="button" class="cEnvio">
+								Calcular com Envio
 							</button>
 						</li>
 					</ul>
 				</form>
-				<div class="content" role="main">
-					<h2 class="resposta">(A respota aparecerá aqui)</h2>
-				</div>
 			</div>
-			<script src="./index.js"></script>
+			<div class="content" role="main">
+				<h1 class="resposta">(A respota aparecerá aqui)</h1>
+			</div>
 		</div>
+		<script src="./index.js"></script>
 	</body>
 </html>
