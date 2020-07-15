@@ -4,13 +4,6 @@ let campoDist = document.querySelector('.distancia');
 const btCalculo = document.querySelector('.calcular');
 const btCEnvio = document.querySelector('.cEnvio');
 let resposta = document.querySelector('.resposta');
-let radioFrete = [
-	document.getElementsByClassName('0'),
-	document.getElementsByClassName('05'),
-	document.getElementsByClassName('1'),
-	document.getElementsByClassName('15'),
-	document.getElementsByClassName('2'),
-];
 
 function calcular() {
 	let peso = campoPeso.value;
@@ -19,19 +12,37 @@ function calcular() {
 	const result = (peso * preco) / 1000;
 
 	resposta.innerHTML = `A resposta é ${result}`;
-	for (let index = 0; index < radioFrete.length; index++) {
-		console.log(`${radioFrete[index].checked}`);
-	}
 }
 
 function comEnvio() {
 	let peso = campoPeso.value;
 	let preco = campoPreco.value;
 	let dist = campoDist.value;
+	let radioFrete = document.querySelectorAll('input[name="precoFrete"]');
+	let result;
 
-	const result = (peso * preco) / 1000;
+	for (const radio of radioFrete) {
+
+		if (radio.checked) {
+			console.log(radio.value);
+			result = ((peso * preco) / 1000) + (dist * radio.value);
+		}
+	}
+
+
+
+	/*for (let index = 0; index < radioFrete.length; index++) {
+		if (radioFrete[index * 0.5].checked) {
+			console.log(radioFrete[index * 0.5].checked);
+			const pBolo = (peso * preco) / 1000;
+			result = pBolo + (dist * index * 0.5);
+		}
+
+	}*/
 
 	resposta.innerHTML = `A resposta é ${result}`;
+
 }
 
 btCalculo.addEventListener('click', calcular);
+btCEnvio.addEventListener('click', comEnvio);
