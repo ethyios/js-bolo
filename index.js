@@ -22,26 +22,13 @@ function comEnvio() {
 	let result;
 
 	for (const radio of radioFrete) {
-
 		if (radio.checked) {
 			console.log(radio.value);
-			result = ((peso * preco) / 1000) + (dist * radio.value);
+			result = (peso * preco) / 1000 + dist * radio.value;
 		}
 	}
 
-
-
-	/*for (let index = 0; index < radioFrete.length; index++) {
-		if (radioFrete[index * 0.5].checked) {
-			console.log(radioFrete[index * 0.5].checked);
-			const pBolo = (peso * preco) / 1000;
-			result = pBolo + (dist * index * 0.5);
-		}
-
-	}*/
-
 	resposta.innerHTML = `A resposta é ${result}`;
-
 }
 
 btCalculo.addEventListener('click', calcular);
