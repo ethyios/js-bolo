@@ -8,15 +8,6 @@ let resposta = document.querySelector('.resposta');
 function calcular() {
 	let peso = campoPeso.value;
 	let preco = campoPreco.value;
-
-	const result = (peso * preco) / 1000;
-
-	resposta.innerHTML = `A resposta é ${result}`;
-}
-
-function comEnvio() {
-	let peso = campoPeso.value;
-	let preco = campoPreco.value;
 	let dist = campoDist.value;
 	let radioFrete = document.querySelectorAll('input[name="precoFrete"]');
 	let result;
@@ -32,4 +23,3 @@ function comEnvio() {
 }
 
 btCalculo.addEventListener('click', calcular);
-btCEnvio.addEventListener('click', comEnvio);
