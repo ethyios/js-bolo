@@ -19,7 +19,7 @@ function calcular() {
 		}
 	}
 
-	resposta.innerHTML = `A resposta é ${result}`;
+	resposta.innerHTML = `A resposta é R\$${result}`;
 }
 
 btCalculo.addEventListener('click', calcular);
