@@ -8,6 +8,6 @@ A calculadora também inclui um botão para obter o preço do bolo junto ao pre�
 
 ---
 
-Calculo pelo tipo de bolo
-Agenda de entrega
+Calculo pelo tipo de bolo,
+Agenda de entrega,
 Estoque
